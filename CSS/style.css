@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+
+
+body{
+    background-image: url("../image/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.img-nav{
+    display: flex;
+    justify-content: space-between;    
+}
+.img-nav img{
+    width: 16vh;
+}
+
+.contener{
+    margin-left: 4rem;
+}
+.contener .heading-1 h1{
+    font-size: 4rem;
+    color: #03404E;
+    margin-top: -1rem;
+}
+
+.contener .heading-3 h3{
+    font-size: 2.5rem;
+    margin-top: -2.7rem;
+    font-weight: 590;
+    color: #FFA500;
+}
+.contener .paragraph p{
+    font-size: 1.8rem;
+    margin-top: -1rem;
+    color: #03404E;
+    font-weight: normal;
+}
+
+.contener .btn button{
+    padding: 0.5rem 3rem;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 7px;
+    margin-top: 2rem;
+
+
+}
+
+.contener .btn button:hover{
+    background: #FFA500;
+}
+.contener .nameOfTeam {
+    display: flex;
+    justify-content: space-between;
+}
+.contener .nameOfTeam h3{
+    margin-right: 3rem;
+    font-size: 1.4rem;
+    color: #FFA500;
+    margin-top: 6rem;
+    
+
+}
