@@ -8,6 +8,8 @@ body{
     background-position: center;
     height: 90vh;
     font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -17,6 +19,7 @@ body{
 }
 .img-nav img{
     width: 16vh;
+    margin: 1rem;
 }
 
 .contener{
@@ -66,5 +69,106 @@ body{
     color: #FFA500;
     margin-top: 6rem;
     
+
+}
+
+
+
+
+
+
+
+
+
+/*second page */
+
+
+
+.contener2 nav{
+    background: #0e748b;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* .allMenu{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.contener2 nav .menu2,.menu3{
+    width: 10vh;
+} */
+
+.contener2 nav .logo{
+    margin-top: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
+
+.contener2 .mainCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.contener2 .mainCard .firshCard, .secondCard{
+    background: #bfe5fa5e;
+    border-radius: 15px;
+    margin-top: 3.5rem;
+    text-align: center;
+
+   
+}
+.contener2 .mainCard .firshCard:hover{
+    box-shadow:0 0.5rem 1.5rem rgb(7, 0, 1);
+}
+.contener2 .mainCard .secondCard:hover{
+    box-shadow:0 0.5rem 1.5rem rgb(7, 0, 1);
+}
+
+.contener2 .mainCard .firshCard{
+    margin-right: 2rem;
+}
+
+.contener2 .mainCard .firshCard h1, .secondCard h1{
+    font-size: 1.5rem;
+    background: #0A2B32;
+    padding: 10px 0;
+    margin-top: -0.1rem;
+    border-radius: 15px 15px 0 0;
+    color: #FFA500;
+    text-align: center;
+
+    
+}
+
+.contener2 .mainCard .firshCard img, .secondCard img{
+    margin:0.5rem 2.5rem;
+}
+
+.contener2 .mainCard .firshCard button, .secondCard button{
+    padding: 0.5rem 3rem;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 7px;
+    color: #FFA500;
+    margin-top: 0.5rem;
+    margin-bottom:1rem;
+
+}
+
+.contener2 .mainCard .firshCard button:hover{
+    background: #FFA500;
+    color: #000;
+
+}
+.contener2 .mainCard .secondCard button:hover{
+    background: #FFA500;
+    color: #000;
 
 }
