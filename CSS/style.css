@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
-
-
-body{
+body {
     background-image: url("../image/bg.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,39 +10,41 @@ body{
     padding: 0;
 }
 
-
-.img-nav{
+.img-nav {
     display: flex;
-    justify-content: space-between;    
+    justify-content: space-between;
 }
-.img-nav img{
+
+.img-nav img {
     width: 16vh;
     margin: 1rem;
 }
 
-.contener{
+.container {
     margin-left: 4rem;
 }
-.contener .heading-1 h1{
+
+.container .heading-1 h1 {
     font-size: 4rem;
     color: #03404E;
     margin-top: -1rem;
 }
 
-.contener .heading-3 h3{
+.container .heading-3 h3 {
     font-size: 2.5rem;
     margin-top: -2.7rem;
     font-weight: 590;
     color: orange;
 }
-.contener .paragraph p{
+
+.container .paragraph p {
     font-size: 1.8rem;
     margin-top: -1rem;
     color: #03404E;
     font-weight: normal;
 }
 
-.contener .btn button{
+.container .btn button {
     padding: 0.5rem 3rem;
     border: none;
     font-family: 'Roboto', sans-serif;
@@ -52,112 +52,93 @@ body{
     font-weight: bold;
     border-radius: 7px;
     margin-top: 2rem;
-
-
 }
 
-.contener .btn button:hover{
+.container .btn button:hover {
     background: orange;
 }
-.contener .nameOfTeam {
+
+.container .nameOfTeam {
     display: flex;
     justify-content: space-between;
 }
-.contener .nameOfTeam h3{
+
+.container .nameOfTeam h3 {
     margin-right: 3rem;
     font-size: 1.4rem;
     color: orange;
     margin-top: 6rem;
-    
-
 }
-
-
-
-
-
-
-
 
 
 /*second page */
 
-
-
-.contener2 nav{
+.container2 nav {
     background: #0e748b;
     /* height: 10vh; */
     display: flex;
     justify-content: space-between;
     /* align-items: center; */
-
 }
-.allMenu{
+
+.allMenu {
     display: flex;
     justify-content: center;
     text-align: center;
     list-style: none;
-
-
 }
-.allMenu li{
+
+.allMenu li {
     display: flex;
     align-items: center;
-    padding:0 1.5rem;
+    padding: 0 1.5rem;
     /* color: white; */
     font-size: 1.2rem;
     font-weight: bold;
-
 }
 
-.allMenu li:hover{
+.allMenu li:hover {
     background: orange;
-    padding:0 1.5rem;
+    padding: 0 1.5rem;
     color: white;
-
-
-
 }
 
-
-.contener2 nav .logo{
+.container2 nav .logo {
     margin-top: 0;
     padding-top: 1rem;
     padding-left: 1rem;
     color: orange;
     font-weight: bold;
-
-    
 }
 
-
-.contener2 .mainCard{
+.container2 .mainCard {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
-.contener2 .mainCard .firshCard, .secondCard{
+.container2 .mainCard .firstCard,
+.secondCard {
     background: #bfe5fa5e;
     border-radius: 15px;
     margin-top: 3.5rem;
     text-align: center;
-
-   
-}
-.contener2 .mainCard .firshCard:hover{
-    box-shadow:0 0.5rem 1.5rem rgb(7, 0, 1);
-}
-.contener2 .mainCard .secondCard:hover{
-    box-shadow:0 0.5rem 1.5rem rgb(7, 0, 1);
 }
 
-.contener2 .mainCard .firshCard{
+.container2 .mainCard .firstCard:hover {
+    box-shadow: 0 0.5rem 1.5rem rgb(7, 0, 1);
+}
+
+.container2 .mainCard .secondCard:hover {
+    box-shadow: 0 0.5rem 1.5rem rgb(7, 0, 1);
+}
+
+.container2 .mainCard .firstCard {
     margin-right: 2rem;
 }
 
-.contener2 .mainCard .firshCard h1, .secondCard h1{
+.container2 .mainCard .firstCard h1,
+.secondCard h1 {
     font-size: 1.5rem;
     background: #0A2B32;
     padding: 10px 0;
@@ -165,15 +146,15 @@ body{
     border-radius: 15px 15px 0 0;
     color: orange;
     text-align: center;
-
-    
 }
 
-.contener2 .mainCard .firshCard img, .secondCard img{
-    margin:0.5rem 2.5rem;
+.container2 .mainCard .firstCard img,
+.secondCard img {
+    margin: 0.5rem 2.5rem;
 }
 
-.contener2 .mainCard .firshCard button, .secondCard button{
+.container2 .mainCard .firstCard button,
+.secondCard button {
     padding: 0.5rem 3rem;
     border: none;
     font-family: 'Roboto', sans-serif;
@@ -182,17 +163,15 @@ body{
     border-radius: 7px;
     /* color: #FFA500; */
     margin-top: 0.5rem;
-    margin-bottom:1rem;
-
+    margin-bottom: 1rem;
 }
 
-.contener2 .mainCard .firshCard button:hover{
+.container2 .mainCard .firstCard button:hover {
     background: orange;
     color: #000;
-
 }
-.contener2 .mainCard .secondCard button:hover{
+
+.container2 .mainCard .secondCard button:hover {
     background: orange;
     color: #000;
-
 }
