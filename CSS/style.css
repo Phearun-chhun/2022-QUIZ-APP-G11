@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
 body {
-    background-image: url("../image/bg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 90vh;
+    background-color: #678992;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -72,6 +68,14 @@ body {
 
 
 /*second page */
+
+.container2 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-image: url("../image/bg.png");
+}
 
 .container2 nav {
     background: #0e748b;
@@ -174,4 +178,173 @@ body {
 .container2 .mainCard .secondCard button:hover {
     background: orange;
     color: #000;
+}
+
+
+/*container3  */
+
+.container3 {
+    background-color: #678992;
+}
+
+.container3 nav {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
+/* form */
+
+form {
+    margin-top: 7%;
+    margin-bottom: 0;
+}
+
+.formQuestion form {
+    margin-top: 2%;
+}
+
+.formQuestion #answer {
+    font-size: 1rem;
+    background: #0e748b;
+    border: none;
+    border-bottom: 2px solid lightslategray;
+    width: 80%;
+    padding: 10px;
+    color: #fff;
+    outline: none;
+}
+
+.answer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+}
+
+
+/* input radio */
+
+input[type='radio'] {
+    transform: scale(1.2);
+}
+
+
+/* #checkAnswer {
+    margin-top: 3%;
+}
+ */
+
+.form-description,
+.form-description-qu-add,
+.form-description-create-qu {
+    padding: 10px;
+    background: #0e748b;
+    border-radius: 7px;
+    border-left: 10px solid orange;
+    width: 50%;
+    margin-left: 23%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-description #blank_quiz {
+    font-size: 2rem;
+}
+
+#formDescription {
+    font-size: 1.5rem;
+}
+
+.form-description .btn,
+.blank_quiz-create-qu .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-description .btn img {
+    margin-top: 4%;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+#blank_quiz,
+#formDescription,
+#blank_quiz-create-qu {
+    background: #0e748b;
+    border: none;
+    border-bottom: 2px solid #fff;
+    width: 80%;
+    margin-left: 10%;
+    padding: 10px;
+    color: #fff;
+    outline: none;
+}
+
+#blank_quiz-create-qu {
+    font-size: 1.4rem;
+}
+
+.blank_quiz_qu_add .underline1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid#fff;
+    margin-top: 5%;
+}
+
+ ::placeholder {
+    color: #fff;
+}
+
+input[type='button'] {
+    font-size: 20px;
+    padding: 7px 25px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    background: orange;
+    font-weight: bold;
+    border-radius: 7px;
+    margin-top: 2rem;
+}
+
+
+/* when go to test */
+
+.container4 .headerQuestion {
+    text-align: center;
+    background: #e0e7e9;
+    width: 55%;
+    margin: 10vh auto;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.container4 .boxAnswer {
+    background: #0a2b32a2;
+    color: white;
+    width: 80%;
+    margin: 4rem auto;
+    padding: 2rem;
+    border-left: 8px solid orange;
+    border-radius: 20px;
+}
+
+.container4 .boxAnswer ul li {
+    list-style: none;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+}
+
+#submit {
+    background: orange;
+    width: 10%;
+    height: 2rem;
+    border-radius: 20px;
 }
