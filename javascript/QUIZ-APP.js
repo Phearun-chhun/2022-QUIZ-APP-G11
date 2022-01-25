@@ -1,3 +1,81 @@
+
+// date Of qusetion and answer
+var dataOfQuiz =[
+    {question:'what.....you doing right now??',
+    answer1:'Am',
+    answer2:'Is',
+    answer3:'Are',
+    answer4:'Was',
+    correct_anser:4
+    },
+    { question:'I ..... to the movies tonight.',
+    answer1:' am going',
+    answer2:'are going',
+    answer3:'is going',
+    answer4:'was going',
+    correct_anser:2
+    },
+    {question:'She ..... to london tomorrow morning.',
+    answer1:' is going',
+    answer2:'will go',
+    answer3:'is going to',
+    answer4:'was going',
+    correct_anser:3
+    },
+    {question:'I..... my brother tomorrow.',
+    answer1:' are meeting',
+    answer2:'am meeting',
+    answer3:'is meting',
+    answer4:'met',
+    correct_anser:4
+    },
+    {question:'My sister..... Tv in the living room',
+    answer1:' are watching',
+    answer2:'am watching',
+    answer3:'is watching',
+    answer4:'watched',
+    correct_anser:1
+    },
+    {question:"I... not.... to school today. I'm sick",
+    answer1:' Are/going to',
+    answer2:'am/going',
+    answer3:'is/going',
+    answer4:'was/going',
+    correct_anser:1
+    },
+    {question:"I....waiting for the bus.",
+    answer1:' Are/going to',
+    answer2:'am',
+    answer3:'is/going',
+    answer4:'was/going',
+    correct_anser:1
+    },
+    {question:"form of present progressive",
+    answer1:' S + to be + v_ing + obj',
+    answer2:'S + v(ed) +obj ',
+    answer3:'is/going',
+    answer4:'was/going',
+    correct_anser:1
+    },
+    {question:"waht is present progressive use for??",
+    answer1:'Descripe about the moment of the speaking',
+    answer2:'Talk about the future',
+    answer3:'Descripw about the temporary situation',
+    answer4:'Talk about the past',
+    correct_anser:1
+    },
+    {question:"I.....you'll give use some advice",
+    answer1:'Am hoping',
+    answer2:'Is hoping',
+    answer3:'Are hoping',
+    answer4:'hoped',
+    correct_anser:1
+    },
+
+    
+]
+
+
 // remove to display new page
 // remove firstPage
 // remove to display new page
@@ -185,6 +263,92 @@ function createQuestion() {
 
 }
 
+// the funetion to change question(add)
+var con=false;
+var score=0;
+var page=1;
+var theAnswer=document.getElementsByName("answer");
+// var theAnswer=document.getElementsByName("answer")
+function check(){
+    // let resultScore=document.querySelector(".scores");
+    // let resultPage=document.querySelector(".page");
+    for (let item of theAnswer){
+        if (item.checked){
+            item.checked=false;
+            // for ( var i=e; i<e+1; i++){
+                if (item.id == dataOfQuiz[e].correct_anser){
+                    score+=10;
+                    // resultScore.textContent="score: "+score+"/100";
+                    con=true;
+
+                }
+            changlevel()
+
+                // resultPage.textContent="page: "+page+"/"+dataOfQuiz.length;
+
+                    
+                // }
+
+        }   
+    }
+
+
+}
+
+
+// to next page  (add)
+var e =0
+function changlevel(){
+    
+        // getElementformDate(dataOfQuiz)
+
+
+   
+if(e<dataOfQuiz.length){
+    page=e+1
+    console.log("ello"+e);
+    console.log(page);
+    console.log("sss"+score);
+
+ 
+}
+   e +=1 // console.log("score"+score);
+
+
+    // if (con==true){
+    //     document.getElementById("p").style.color = "#00ff00";
+    // }
+    // else{
+    //     document.getElementById("p").style.color = "#ff0000";
+
+    // }
+}
+// ---------------------------------------------------------------
+
+function showAnswer(){
+        // show answer
+    if (e<dataOfQuiz.length){
+        for ( var i=e; i<e+1; i++){
+            // let text = document.querySelector(".text");
+            let thequestionShow = document.querySelector('.headerQuestion');
+            let frist  = document.querySelector('#a');
+            let second  = document.querySelector('#b');
+            let thrid  = document.querySelector('#c');
+            let fourth  = document.querySelector('#d');
+            thequestionShow.textContent=dataOfQuiz[i].question;
+            // text.textContent=dataOfQuiz[i].question;
+            frist.textContent = dataOfQuiz[i].answer1;
+            second.textContent = dataOfQuiz[i].answer2;
+            thrid.textContent = dataOfQuiz[i].answer3;
+            fourth.textContent = dataOfQuiz[i].answer4;
+            }
+            check()
+        }
+
+}
+
+
+
 // start play a quiz
 
 function startPlayQuiz() {
@@ -206,6 +370,102 @@ function startPlayQuiz() {
     navBar.appendChild(logo);
 
     console.log('Hello')
+
+    // start (add)--------------------
+    let headerQuestion=document.createElement("h1");
+    headerQuestion.className="headerQuestion";
+    container4.appendChild(headerQuestion);
+
+    let boxAnswer=document.createElement("div");
+    boxAnswer.className="boxAnswer";
+    container4.appendChild(boxAnswer);
+
+    let litleAnswer=document.createElement("h3");
+    litleAnswer.textContent="Answer";
+    boxAnswer.appendChild(litleAnswer)
+
+    let buttonSummitAnswer=document.createElement("button");
+    buttonSummitAnswer.id="submit";
+
+    container4.appendChild(buttonSummitAnswer);
+
+
+    let ulList=document.createElement("ul");
+    boxAnswer.appendChild(ulList);
+// list of Answer
+    let li1=document.createElement("li");
+    ulList.appendChild(li1);
+    let li2=document.createElement("li");
+    ulList.appendChild(li2);
+    let li3=document.createElement("li");
+    ulList.appendChild(li3);
+    let li4=document.createElement("li");
+    ulList.appendChild(li4);
+// input 1
+    let addInputTypeAnswer1=document.createElement("input");
+    addInputTypeAnswer1.setAttribute("type","radio");
+    addInputTypeAnswer1.setAttribute("name","answer");
+    addInputTypeAnswer1.setAttribute("value","an1");
+    addInputTypeAnswer1.id="1";
+    li1.appendChild(addInputTypeAnswer1);
+
+    let labelAnswer1=document.createElement("label");
+    labelAnswer1.id="a";
+    labelAnswer1.setAttribute("for","an1");
+    li1.appendChild(labelAnswer1);
+
+
+// input 2
+    let addInputTypeAnswer2=document.createElement("input");
+    addInputTypeAnswer2.setAttribute("type","radio");
+    addInputTypeAnswer2.setAttribute("name","answer");
+    addInputTypeAnswer2.setAttribute("value","an2");
+    addInputTypeAnswer2.id="2";
+    li2.appendChild(addInputTypeAnswer2);
+
+    let labelAnswer2=document.createElement("label");
+    labelAnswer2.id="b";
+    labelAnswer2.setAttribute("for","an2");
+    li2.appendChild(labelAnswer2);
+
+// input 3
+    let addInputTypeAnswer3=document.createElement("input");
+    addInputTypeAnswer3.setAttribute("type","radio");
+    addInputTypeAnswer3.setAttribute("name","answer");
+    addInputTypeAnswer3.setAttribute("value","an3");
+    addInputTypeAnswer3.id="3";
+    li3.appendChild(addInputTypeAnswer3);
+
+    let labelAnswer3=document.createElement("label");
+    labelAnswer3.id="c";
+    labelAnswer3.setAttribute("for","an3");
+    li3.appendChild(labelAnswer3);
+
+// input4
+    let addInputTypeAnswer4=document.createElement("input");
+    addInputTypeAnswer4.setAttribute("type","radio");
+    addInputTypeAnswer4.setAttribute("name","answer");
+    addInputTypeAnswer4.setAttribute("value","an4");
+    addInputTypeAnswer4.id="4";
+    li4.appendChild(addInputTypeAnswer4);
+
+    let labelAnswer4=document.createElement("label");
+    labelAnswer4.id="d";
+    labelAnswer4.setAttribute("for","an4");
+    li4.appendChild(labelAnswer4);
+    console.log(li1);
+
+    
+
+ 
+    if (e<dataOfQuiz.length){
+
+        document.getElementById('submit').onclick = function() {
+                showAnswer() 
+            }
+    }
+
+    showAnswer()
 }
 // to add the question-------------------------------------------------
 function formQuestion() {

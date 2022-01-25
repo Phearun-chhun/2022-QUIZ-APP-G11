@@ -348,3 +348,34 @@ input[type='button'] {
     height: 2rem;
     border-radius: 20px;
 }
+
+
+/* when go to test */
+
+.container4 .headerQuestion{
+    text-align: center;
+    background: #e0e7e9;
+    width: 55%;
+    margin:10vh auto;
+    padding: 1rem;
+
+}
+.container4 .boxAnswer{
+    background:#0a2b32a2 ;
+    color: white;
+    width: 80%;
+    margin: 4rem auto;
+    padding: 2rem;
+    border-left: 8px solid orange;
+}
+.container4 .boxAnswer ul li{
+    list-style: none;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+
+}
+#submit{
+    background:orange;
+    width: 10%;
+    height: 2rem;
+}
