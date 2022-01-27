@@ -1,4 +1,80 @@
+var dataOfQuiz =[
+    {question:'what.....you doing right now??',
+    answer1:'Am',
+    answer2:'Is',
+    answer3:'Are',
+    answer4:'Was',
+    correct_anser:4
+    },
+    { question:'I ..... to the movies tonight.',
+    answer1:' am going',
+    answer2:'are going',
+    answer3:'is going',
+    answer4:'was going',
+    correct_anser:2
+    },
+    {question:'She ..... to london tomorrow morning.',
+    answer1:' is going',
+    answer2:'will go',
+    answer3:'is going to',
+    answer4:'was going',
+    correct_anser:3
+    },
+    {question:'I..... my brother tomorrow.',
+    answer1:' are meeting',
+    answer2:'am meeting',
+    answer3:'is meting',
+    answer4:'met',
+    correct_anser:4
+    },
+    {question:'My sister..... Tv in the living room',
+    answer1:' are watching',
+    answer2:'am watching',
+    answer3:'is watching',
+    answer4:'watched',
+    correct_anser:1
+    },
+    {question:"I... not.... to school today. I'm sick",
+    answer1:' Are/going to',
+    answer2:'am/going',
+    answer3:'is/going',
+    answer4:'was/going',
+    correct_anser:1
+    },
+    {question:"I....waiting for the bus.",
+    answer1:' Are/going to',
+    answer2:'am',
+    answer3:'is/going',
+    answer4:'was/going',
+    correct_anser:1
+    },
+    {question:"form of present progressive",
+    answer1:' S + to be + v_ing + obj',
+    answer2:'S + v(ed) +obj ',
+    answer3:'is/going',
+    answer4:'was/going',
+    correct_anser:1
+    },
+    {question:"waht is present progressive use for??",
+    answer1:'Descripe about the moment of the speaking',
+    answer2:'Talk about the future',
+    answer3:'Descripw about the temporary situation',
+    answer4:'Talk about the past',
+    correct_anser:1
+    },
+    {question:"I.....you'll give use some advice",
+    answer1:'Am hoping',
+    answer2:'Is hoping',
+    answer3:'Are hoping',
+    answer4:'hoped',
+    correct_anser:1
+    },
+]
+
+
+
 // remove to display new page
+document.querySelector('.container4').style.display = 'none';
 
 function removePage(event) {
     event.preventDefault();
@@ -18,13 +94,14 @@ function removeQuizPage(event) {
     event.preventDefault();
     let hello = event.target.parentElement.parentElement.parentElement.parentElement;
     hello.remove();
-    startPlayQuiz();
+    // startPlayQuiz();
+    startQuiz()
 
 }
 // second page
 
 function startOrCreateQuiz() {
-
+    document.querySelector('.container4').style.display = 'none';
     let container2 = document.createElement("div");
     container2.className = "container2";
     document.body.appendChild(container2);
@@ -196,7 +273,10 @@ function display(array) {
 
 
 function createQuestion() {
+
     document.querySelector('.global-container').style.display = 'block';
+    document.querySelector('.container4').style.display = 'none';
+
 }
 // play quiz
 function playQuiz() {
@@ -224,7 +304,67 @@ function startPlayQuiz() {
     navBar.appendChild(logo);
 
     console.log('Hello')
+    startQuiz()
 }
+
+// user can play quiz-------------
+
+
+var totalScore=0;
+var page=0;
+var conToAlet=false;
+let number = 0;
+
+var theAnswer=document.getElementsByName("answer");
+function displaTheNewQusetion(){
+    for (let item of theAnswer){
+        if (item.checked){
+            item.checked=false;
+                if (item.id == dataOfQuiz[number].correct_anser){
+                    totalScore+=10;
+                }
+            conToAlet=true;
+            number+=1
+            page=number+1
+        }
+ 
+    }
+    if (conToAlet==false){
+        alert('Please choose the answer!');
+
+    }
+    console.log(totalScore);
+    console.log("page"+page);
+    console.log("hello");
+    startQuiz()
+
+}
+function startQuiz(){
+    if ( number< dataOfQuiz.length){
+        let date = dataOfQuiz[number];
+        console.log(date)
+        let container4add=document.querySelector(".container4")
+        console.log(container4add);
+        // document.body.appendChild(container4add)
+        let thequestionShow = document.querySelector('.headerQuestion');
+        let frist  = document.querySelector('#a');
+        let second  = document.querySelector('#b');
+        let thrid  = document.querySelector('#c');
+        let fourth  = document.querySelector('#d');
+        thequestionShow.textContent=date.question;
+        // text.textContent=dataOfQuiz[i].question;
+        frist.textContent = date.answer1;
+        second.textContent = date.answer2;
+        thrid.textContent = date.answer3;
+        fourth.textContent = date.answer4;
+        container4add.style.display="block"
+    }
+    conToAlet=false;
+    
+}
+// startQuiz()
+
+
 
 
 
@@ -237,3 +377,6 @@ document.querySelector('.global-container').style.display = 'none';
 // play-quiz
 let button_play_quiz = document.querySelector('.button-play-quiz');
 button_play_quiz.addEventListener('click', playQuiz)
+
+let buttonsubmit = document.querySelector('.submit')
+buttonsubmit.addEventListener('click',displaTheNewQusetion)
