@@ -1,90 +1,80 @@
-var dataOfQuiz = [{
-        question: 'what.....you doing right now??',
-        answer1: 'Am',
-        answer2: 'Is',
-        answer3: 'Are',
-        answer4: 'Was',
-        correct_anser: 4
+var dataOfQuiz =[
+    {question:'what.....you doing right now??',
+    answer1:'Am',
+    answer2:'Is',
+    answer3:'Are',
+    answer4:'Was',
+    correct_anser:3
     },
-    {
-        question: 'I ..... to the movies tonight.',
-        answer1: ' am going',
-        answer2: 'are going',
-        answer3: 'is going',
-        answer4: 'was going',
-        correct_anser: 2
+    { question:'I ..... to the movies tonight.',
+    answer1:' am going',
+    answer2:'are going',
+    answer3:'is going',
+    answer4:'was going',
+    correct_anser:1
     },
-    {
-        question: 'She ..... to london tomorrow morning.',
-        answer1: ' is going',
-        answer2: 'will go',
-        answer3: 'is going to',
-        answer4: 'was going',
-        correct_anser: 3
+    {question:'She ..... to london tomorrow morning.',
+    answer1:' is going',
+    answer2:'will go',
+    answer3:'is going to',
+    answer4:'was going',
+    correct_anser:1
     },
-    {
-        question: 'I..... my brother tomorrow.',
-        answer1: ' are meeting',
-        answer2: 'am meeting',
-        answer3: 'is meting',
-        answer4: 'met',
-        correct_anser: 4
+    {question:'I..... my brother tomorrow.',
+    answer1:' are meeting',
+    answer2:'am meeting',
+    answer3:'is meting',
+    answer4:'met',
+    correct_anser:2
     },
-    {
-        question: 'My sister..... Tv in the living room',
-        answer1: ' are watching',
-        answer2: 'am watching',
-        answer3: 'is watching',
-        answer4: 'watched',
-        correct_anser: 1
+    {question:'My sister..... Tv in the living room',
+    answer1:' are watching',
+    answer2:'am watching',
+    answer3:'is watching',
+    answer4:'watched',
+    correct_anser:3
     },
-    {
-        question: "I... not.... to school today. I'm sick",
-        answer1: ' Are/going to',
-        answer2: 'am/going',
-        answer3: 'is/going',
-        answer4: 'was/going',
-        correct_anser: 1
+    {question:"I... not.... to school today. I'm sick",
+    answer1:' Are/going to',
+    answer2:'am/going',
+    answer3:'is/going',
+    answer4:'was/going',
+    correct_anser:2
     },
-    {
-        question: "I....waiting for the bus.",
-        answer1: ' Are/going to',
-        answer2: 'am',
-        answer3: 'is/going',
-        answer4: 'was/going',
-        correct_anser: 1
+    {question:"I....waiting for the bus.",
+    answer1:' Are/going to',
+    answer2:'am',
+    answer3:'is/going',
+    answer4:'was/going',
+    correct_anser:2
     },
-    {
-        question: "form of present progressive",
-        answer1: ' S + to be + v_ing + obj',
-        answer2: 'S + v(ed) +obj ',
-        answer3: 'is/going',
-        answer4: 'was/going',
-        correct_anser: 1
+    {question:"form of present progressive",
+    answer1:' S + to be + v_ing + obj',
+    answer2:'S + v(ed) +obj ',
+    answer3:'is/going',
+    answer4:'was/going',
+    correct_anser:1
     },
-    {
-        question: "What is present progressive use for??",
-        answer1: 'Describe about the moment of the speaking',
-        answer2: 'Talk about the future',
-        answer3: 'Describe about the temporary situation',
-        answer4: 'Talk about the past',
-        correct_anser: 1
+    {question:"waht is present progressive use for??",
+    answer1:'Descripe about the moment of the speaking',
+    answer2:'Talk about the future',
+    answer3:'Descripw about the temporary situation',
+    answer4:'Talk about the past',
+    correct_anser:1
     },
-    {
-        question: "I.....you'll give use some advice",
-        answer1: 'Am hoping',
-        answer2: 'Is hoping',
-        answer3: 'Are hoping',
-        answer4: 'hoped',
-        correct_anser: 1
-    }
+    {question:"I.....you'll give use some advice",
+    answer1:'hoped',
+    answer2:'Is hoping',
+    answer3:'Are hoping',
+    answer4:'Am hopeding',
+    correct_anser:4
+    },
 ]
-
-
 
 // remove to display new page
 document.querySelector('.container4').style.display = 'none';
 document.querySelector('.container6').style.display = 'none';
+document.querySelector('.Total-score').style.display='none'
 
 
 function removePage(event) {
@@ -113,6 +103,7 @@ function removeQuizPage(event) {
 
 function startOrCreateQuiz() {
     document.querySelector('.container4').style.display = 'none';
+    document.querySelector('.Total-score').style.display='none';
     let container2 = document.createElement("div");
     container2.className = "container2";
     document.body.appendChild(container2);
@@ -217,7 +208,6 @@ function addQuestion(event) {
         display(tasks)
     }
 
-
 }
 // function() 
 function display(array) {
@@ -314,9 +304,53 @@ function createQuestion() {
     document.querySelector('.global-container').style.display = 'block';
     document.querySelector('.container4').style.display = 'none';
     document.querySelector('.container6').style.display = 'none';
+    document.querySelector('.Total-score').style.display='none';
 
 
 }
+
+
+
+
+
+
+
+// show the total of the score
+var corrects=''
+var incorrects=''
+function showtotal(){
+    document.querySelector('.global-container').style.display = 'none';
+    document.querySelector('.container4').style.display = 'none';
+    document.querySelector('.Total-score').style.display='block'
+    
+    let correct = document.querySelector('.correct')
+    let incorrect= document.querySelector('.incorrect')
+    for ( var value1 of correctanswer){
+        var store1 = document.createElement('div')
+        store1.className='correct_answer'
+        store1.textContent=value1
+        correct.appendChild(store1)
+    } 
+    
+    for ( var value2 of incorrectanswer){
+        var store2 = document.createElement('div')
+        store2.className='incorrect_answers'
+        store2.textContent=value2
+        incorrect.appendChild(store2)
+    }
+   
+    console.log( 'answercorrect',correct);
+    console.log('answerincorrect',incorrect);
+}
+
+function closepageQuiz() {
+    window.close();
+}
+let buttonExit = document.querySelector('.exit')
+buttonExit.addEventListener('click',closepageQuiz)
+
+
+
 
 // -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 // user can play quiz-------------
@@ -359,6 +393,7 @@ function playQuiz() {
     document.querySelector('.global-container').style.display = 'none';
     document.querySelector('.container4').style.display = 'none';
     document.querySelector('.container6').style.display = 'block';
+    document.querySelector('.Total-score').style.display='none';
 
     // startPlayQuiz();
     // display()
@@ -383,10 +418,6 @@ function playQuiz() {
     }
     conToAlerts = false;
 
-
-
-
-
 }
 
 // user can play quiz-------------
@@ -396,15 +427,33 @@ var totalScore = 0;
 var page = 0;
 var conToAlet = false;
 let number = 0;
-
+var correctanswer =[]
+var incorrectanswer=[]
+var theAnswer=document.getElementsByName("answer");
+let pages1 = document.querySelector('.page')
+let score = document.querySelector('.score')
+let total_score = document.querySelector('.total')
 var theAnswer = document.getElementsByName("answer");
 
 function displayTheNewQuestion() {
+    document.querySelector('.container4').style.display = 'none';
+    var correct = []
+    var incorrect =[]
     for (let item of theAnswer) {
         if (item.checked) {
             item.checked = false;
             if (item.value == dataOfQuiz[number].correct_anser) {
                 totalScore += 10;
+                correct.push(dataOfQuiz[number].question)
+                score.textContent= 'Score:'+totalScore
+                correctanswer.push(correct)
+                console.log('correcteanswer',correctanswer);
+            }
+            else{
+                incorrect.push(dataOfQuiz[number].question)
+                incorrectanswer.push(incorrect)
+                console.log('incorrecteanswer',incorrectanswer);
+
             }
             conToAlet = true;
             number += 1
@@ -412,13 +461,20 @@ function displayTheNewQuestion() {
         }
 
     }
+    total_score.textContent = "Total Score:"+totalScore
+    if (number >= dataOfQuiz.length){
+        document.querySelector('.Total-score').style.display='block'
+        showtotal();
+    }
+
     if (conToAlet == false) {
         alert('Please choose the answer!');
 
     }
-    console.log(totalScore);
-    console.log("page" + page);
-    console.log("hello");
+    // console.log(totalScore);
+    // console.log("page" + page);
+    // console.log("hello");
+    pages1.textContent="Pages:"+page
     startQuiz()
 
 }
