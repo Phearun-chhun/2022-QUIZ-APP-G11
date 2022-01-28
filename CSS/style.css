@@ -143,7 +143,7 @@ body {
     margin-top: 0;
     padding-top: 1rem;
     padding-left: 1rem;
-    color: rgb(255, 166, 0);
+    color: orange;
     font-weight: bold;
 }
 
@@ -197,7 +197,7 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     border-radius: 7px;
-    /* color: #FFA500; */
+    /* color: orange; */
     margin-top: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -242,9 +242,8 @@ body {
     color: #fff;
 }
 
-.title,
-.inputQuestion,
-.inputAnswer {
+.inputAnswer,
+.title {
     background: #0e748b;
     border-radius: 7px;
     color: #fff;
@@ -265,6 +264,11 @@ body {
     align-items: center;
 }
 
+.title span {
+    font-size: 2rem;
+    margin-left: 2.5%;
+}
+
 .title input {
     width: 100%;
     font-size: 2rem;
@@ -276,7 +280,6 @@ body {
 }
 
 .inputQuestion input {
-    height: 10vh;
     width: 100%;
     color: #fff;
 }
@@ -306,6 +309,11 @@ input[type='radio'] {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.inputQuestion span {
+    font-size: 1.5rem;
+    margin-left: 2.5%;
 }
 
 input[type='text'] {
@@ -413,4 +421,130 @@ input[name='title'] {
 .moreButton img {
     width: 30px;
     height: 30px;
+}
+
+
+/* when go to test  */
+
+.container4 .logo {
+    margin-top: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    color: orange;
+    font-weight: bold;
+}
+
+.container4 .headerQuestion {
+    text-align: center;
+    background: #e0e7e9ea;
+    width: 50%;
+    margin: 10vh auto;
+    padding: 1rem;
+    border-radius: 7px;
+}
+
+.container4 .boxAnswer {
+    background: #0e748b;
+    border-radius: 7px;
+    color: #fff;
+    margin: auto;
+    width: 70%;
+    border-left: 10px solid orange;
+    padding: 10px;
+}
+
+.container4 .boxAnswer ul li {
+    list-style: none;
+    margin-top: 0.5rem;
+    display: flex;
+    font-size: 1.2rem;
+}
+
+.submit {
+    background: orange;
+    width: 10%;
+    border: none;
+    height: 2rem;
+    margin-left: 76.3%;
+    margin-top: 1rem;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.boxAnswer h3 {
+    color: orange;
+    margin-left: 2rem;
+    font-size: 1.5rem;
+}
+
+.boxAnswer .line {
+    width: 90%;
+    height: 4px;
+    background: white;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+}
+
+.boxAnswer .line1 {
+    width: 92%;
+    height: 3px;
+    background: orange;
+    margin-top: -1rem;
+    margin-left: 2rem;
+}
+
+
+/* container6 */
+
+.container6 .headerQuestions {
+    text-align: center;
+    background: #e0e7e9ea;
+    width: 50%;
+    margin: 10vh auto;
+    padding: 1rem;
+    border-radius: 7px;
+}
+
+.container6 .logo {
+    margin-top: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    color: orange;
+    font-weight: bold;
+}
+
+.container6 .boxAnswer {
+    /* background:#0a2b32a2 ;
+    color: white;
+    width: 80%;
+    margin: 4rem auto;
+    padding: 2rem;
+    border-left: 8px solid orange; */
+    background: #0e748b;
+    border-radius: 7px;
+    color: #fff;
+    margin: auto;
+    width: 70%;
+    border-left: 10px solid orange;
+    padding: 10px;
+}
+
+.container6 .boxAnswer ul li {
+    list-style: none;
+    margin-top: 0.5rem;
+    display: flex;
+    font-size: 1.2rem;
+}
+
+.submits {
+    background: orange;
+    width: 10%;
+    border: none;
+    height: 2rem;
+    margin-top: 1rem;
+    margin-left: 76.3%;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }

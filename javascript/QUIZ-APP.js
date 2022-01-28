@@ -1,4 +1,91 @@
+var dataOfQuiz = [{
+        question: 'what.....you doing right now??',
+        answer1: 'Am',
+        answer2: 'Is',
+        answer3: 'Are',
+        answer4: 'Was',
+        correct_anser: 4
+    },
+    {
+        question: 'I ..... to the movies tonight.',
+        answer1: ' am going',
+        answer2: 'are going',
+        answer3: 'is going',
+        answer4: 'was going',
+        correct_anser: 2
+    },
+    {
+        question: 'She ..... to london tomorrow morning.',
+        answer1: ' is going',
+        answer2: 'will go',
+        answer3: 'is going to',
+        answer4: 'was going',
+        correct_anser: 3
+    },
+    {
+        question: 'I..... my brother tomorrow.',
+        answer1: ' are meeting',
+        answer2: 'am meeting',
+        answer3: 'is meting',
+        answer4: 'met',
+        correct_anser: 4
+    },
+    {
+        question: 'My sister..... Tv in the living room',
+        answer1: ' are watching',
+        answer2: 'am watching',
+        answer3: 'is watching',
+        answer4: 'watched',
+        correct_anser: 1
+    },
+    {
+        question: "I... not.... to school today. I'm sick",
+        answer1: ' Are/going to',
+        answer2: 'am/going',
+        answer3: 'is/going',
+        answer4: 'was/going',
+        correct_anser: 1
+    },
+    {
+        question: "I....waiting for the bus.",
+        answer1: ' Are/going to',
+        answer2: 'am',
+        answer3: 'is/going',
+        answer4: 'was/going',
+        correct_anser: 1
+    },
+    {
+        question: "form of present progressive",
+        answer1: ' S + to be + v_ing + obj',
+        answer2: 'S + v(ed) +obj ',
+        answer3: 'is/going',
+        answer4: 'was/going',
+        correct_anser: 1
+    },
+    {
+        question: "What is present progressive use for??",
+        answer1: 'Describe about the moment of the speaking',
+        answer2: 'Talk about the future',
+        answer3: 'Describe about the temporary situation',
+        answer4: 'Talk about the past',
+        correct_anser: 1
+    },
+    {
+        question: "I.....you'll give use some advice",
+        answer1: 'Am hoping',
+        answer2: 'Is hoping',
+        answer3: 'Are hoping',
+        answer4: 'hoped',
+        correct_anser: 1
+    }
+]
+
+
+
 // remove to display new page
+document.querySelector('.container4').style.display = 'none';
+document.querySelector('.container6').style.display = 'none';
+
 
 function removePage(event) {
     event.preventDefault();
@@ -18,13 +105,14 @@ function removeQuizPage(event) {
     event.preventDefault();
     let hello = event.target.parentElement.parentElement.parentElement.parentElement;
     hello.remove();
-    startPlayQuiz();
+    // startPlayQuiz();
+    startQuiz()
 
 }
 // second page
 
 function startOrCreateQuiz() {
-
+    document.querySelector('.container4').style.display = 'none';
     let container2 = document.createElement("div");
     container2.className = "container2";
     document.body.appendChild(container2);
@@ -62,8 +150,7 @@ function startOrCreateQuiz() {
     btns.className = 'btn-create';
     btns.textContent = "Create";
     btn.appendChild(btns);
-    console.log(btn)
-        // card 2
+    // card 2
     let secondCard = document.createElement("div");
     secondCard.className = "secondCard";
     mainCard.appendChild(secondCard);
@@ -83,7 +170,6 @@ function startOrCreateQuiz() {
     btns3.className = 'btn-startQuiz'
     btns3.textContent = "Start";
     btn2.appendChild(btns3);
-    console.log(btn2);
     // createQuizButton 
     // quizPage
     let createButton = document.querySelector(".btn-create");
@@ -94,11 +180,12 @@ function startOrCreateQuiz() {
 }
 
 // add question
-let tasks = [];
+var tasks = [];
 
 function addQuestion(event) {
     event.preventDefault();
-    let task = {};
+
+    var task = {};
     var getValueFromTitle = document.getElementById('title');
     task['Title'] = getValueFromTitle.value;
     var getValueQuestion = document.getElementById('inputQuestion');
@@ -107,20 +194,30 @@ function addQuestion(event) {
     let getAnswer2 = document.querySelector('.input2');
     let getAnswer3 = document.querySelector('.input3');
     let getAnswer4 = document.querySelector('.input4');
-
     values1 = getAnswer1.value;
     values2 = getAnswer2.value;
     values3 = getAnswer3.value;
     values4 = getAnswer4.value;
-    task['answer1'] = values1;
-    task['answer2'] = values2;
-    task['answer3'] = values3;
-    task['answer4'] = values4;
-    // }
+    if (getValueFromTitle.value == '' || getValueQuestion.value == '' || values1 == '' || values2 == '' || values3 == '' || values4 == '') {
+        window.alert('You must fill all input')
+        radioValidation()
+        console.log('validation')
+    } else {
+        task['answer1'] = values1;
+        task['answer2'] = values2;
+        task['answer3'] = values3;
+        task['answer4'] = values4;
+        let correctAnswer = document.getElementsByName('input');
+        for (let k of correctAnswer) {
+            if (k.checked) {
+                task['correct_Answer'] = k.id;
+            }
+        }
+        tasks.push(task);
+        display(tasks)
+    }
 
-    tasks.push(task);
-    console.log(tasks);
-    display(tasks)
+
 }
 // function() 
 function display(array) {
@@ -143,7 +240,7 @@ function display(array) {
         let ques = document.createElement('div');
         ques.className = 'ques';
         ques.textContent = 'Question: ' + array[i].Question;
-        console.log(ques);
+
         // title
         let titleQuiz = document.createElement('div');
         titleQuiz.className = 'titleQuiz';
@@ -188,43 +285,173 @@ function display(array) {
         remove.src = 'image/bin.png';
         moreButton.appendChild(edit)
         moreButton.appendChild(remove)
-            // console.log(newContainer)
         smallCon.appendChild(moreButton)
+
     }
 
 }
+// check validation on radio
 
+function radioValidation() {
+    if (document.getElementById('1').checked || document.getElementById('2').checked || document.getElementById('3').checked || document.getElementById('4').checked) {
+        window.alert('Your answer is selected')
+    } else {
+        window.alert('Please choose your answer!')
+    }
+
+
+}
+// clear form after submit
+
+// function clearForm() {
+//     getValueFromTitle.Value = '';
+// }
 
 function createQuestion() {
+
     document.querySelector('.global-container').style.display = 'block';
+    document.querySelector('.container4').style.display = 'none';
+    document.querySelector('.container6').style.display = 'none';
+
+
 }
+
+// -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+// user can play quiz-------------
+
+
+var totalScores = 0;
+var pages = 0;
+var conToAlerts = false;
+let indexOfNewTask = 0;
+
+var theAnswers = document.getElementsByName("answers");
+
+function displayTheNewQuestions() {
+    for (var items of theAnswers) {
+        if (items.checked) {
+            items.checked = false;
+            if (items.id == tasks[indexOfNewTask].correct_Answer) {
+                totalScores += 10;
+            }
+            conToAlerts = true;
+            indexOfNewTask += 1
+            pages = indexOfNewTask + 1
+        }
+
+    }
+    if (conToAlerts === false) {
+        alert('Please choose the answer!');
+    }
+    console.log(totalScores);
+    console.log("page" + pages);
+    playQuiz()
+
+}
+
+
+
+
 // play quiz
 function playQuiz() {
     document.querySelector('.global-container').style.display = 'none';
-    startPlayQuiz()
+    document.querySelector('.container4').style.display = 'none';
+    document.querySelector('.container6').style.display = 'block';
+
+    // startPlayQuiz();
+    // display()
+    // -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    if (indexOfNewTask < tasks.length) {
+        let dates = tasks[indexOfNewTask];
+        console.log(tasks)
+        let container6add = document.querySelector(".container6")
+            // document.body.appendChild(container4add)
+        let theQuestionShow = document.querySelector('.headerQuestions');
+        let first = document.querySelector('#e');
+        let second = document.querySelector('#f');
+        let third = document.querySelector('#g');
+        let fourth = document.querySelector('#h');
+        theQuestionShow.textContent = dates.Question;
+        // text.textContent=tasks[i].question;
+        first.textContent = dates['answer1'];
+        second.textContent = dates['answer2'];
+        third.textContent = dates['answer3'];
+        fourth.textContent = dates['answer4'];
+        container6add.style.display = "block"
+    }
+    conToAlerts = false;
+
+
+
+
+
 }
 // start play a quiz
 
-function startPlayQuiz() {
-    let container4 = document.createElement('div');
-    container4.className = 'container4';
-    document.body.appendChild(container4);
+// function startPlayQuiz() {
+//     startQuiz()
+// }
 
-    let navBar = document.createElement('nav');
-    container4.appendChild(navBar);
-    // style of navBar
-    navBar.style.backgroundColor = '#0e748b';
-    navBar.style.display = 'flex';
-    navBar.style.justifyContent = 'space-between';
-    let logo = document.createElement("h1");
-    logo.className = "logo";
-    logo.textContent = "QUIZ APP";
-    logo.style.color = 'orange'
-    logo.style.marginLeft = '10px';
-    navBar.appendChild(logo);
+// user can play quiz-------------
 
-    console.log('Hello')
+
+var totalScore = 0;
+var page = 0;
+var conToAlet = false;
+let number = 0;
+
+var theAnswer = document.getElementsByName("answer");
+
+function displayTheNewQuestion() {
+    for (let item of theAnswer) {
+        if (item.checked) {
+            item.checked = false;
+            if (item.id == dataOfQuiz[number].correct_anser) {
+                totalScore += 10;
+            }
+            conToAlet = true;
+            number += 1
+            page = number + 1
+        }
+
+    }
+    if (conToAlet == false) {
+        alert('Please choose the answer!');
+
+    }
+    console.log(totalScore);
+    console.log("page" + page);
+    console.log("hello");
+    startQuiz()
+
 }
+
+function startQuiz() {
+    if (number < dataOfQuiz.length) {
+        let date = dataOfQuiz[number];
+        console.log(date)
+        let container4add = document.querySelector(".container4")
+        console.log(container4add);
+        // document.body.appendChild(container4add)
+        let theQuestionShow = document.querySelector('.headerQuestion');
+        let first = document.querySelector('#a');
+        let second = document.querySelector('#b');
+        let third = document.querySelector('#c');
+        let fourth = document.querySelector('#d');
+        theQuestionShow.textContent = date.question;
+        // text.textContent=dataOfQuiz[i].question;
+        first.textContent = date.answer1;
+        second.textContent = date.answer2;
+        third.textContent = date.answer3;
+        fourth.textContent = date.answer4;
+        container4add.style.display = "block"
+    }
+    conToAlet = false;
+
+}
+// startQuiz()
+
+
 
 
 
@@ -237,3 +464,8 @@ document.querySelector('.global-container').style.display = 'none';
 // play-quiz
 let button_play_quiz = document.querySelector('.button-play-quiz');
 button_play_quiz.addEventListener('click', playQuiz)
+
+let buttonSubmit = document.querySelector('.submit')
+buttonSubmit.addEventListener('click', displayTheNewQuestion)
+let buttonSubmits = document.querySelector('.submits')
+buttonSubmits.addEventListener('click', displayTheNewQuestions)
