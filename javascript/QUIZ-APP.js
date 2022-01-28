@@ -282,6 +282,8 @@ function display(array) {
         let edit = document.createElement('img');
         edit.src = 'image/edit.png';
         let remove = document.createElement('img');
+        remove.id="toRemoveQusetion";
+        remove.addEventListener('click',removeTheQusetion);
         remove.src = 'image/bin.png';
         moreButton.appendChild(edit)
         moreButton.appendChild(remove)
@@ -449,12 +451,19 @@ function startQuiz() {
     conToAlet = false;
 
 }
-// startQuiz()
+// -----------------------
+// remove qusetion
+function removeTheQusetion(){
+    console.log("hello my name is assas");
+    let con = document.getElementsByClassName("smallCon");
+    if (con.length>0){
+        con[0].remove();
+    }
+    tasks.splice(0,1)
+}
 
 
-
-
-
+// -----------------------------------------------------------------------------------------
 // button remove first page
 let btnAdd = document.getElementById('add');
 btnAdd.addEventListener("click", addQuestion);
