@@ -333,7 +333,7 @@ function displayTheNewQuestions() {
     for (var items of theAnswers) {
         if (items.checked) {
             items.checked = false;
-            if (items.id == tasks[indexOfNewTask].correct_Answer) {
+            if (items.value == tasks[indexOfNewTask].correct_Answer) {
                 totalScores += 10;
             }
             conToAlerts = true;
@@ -388,11 +388,6 @@ function playQuiz() {
 
 
 }
-// start play a quiz
-
-// function startPlayQuiz() {
-//     startQuiz()
-// }
 
 // user can play quiz-------------
 
@@ -408,7 +403,7 @@ function displayTheNewQuestion() {
     for (let item of theAnswer) {
         if (item.checked) {
             item.checked = false;
-            if (item.id == dataOfQuiz[number].correct_anser) {
+            if (item.value == dataOfQuiz[number].correct_anser) {
                 totalScore += 10;
             }
             conToAlet = true;
