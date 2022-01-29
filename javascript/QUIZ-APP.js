@@ -224,6 +224,7 @@ getAnswer3.value=""
 getAnswer4.value=""
 // =======================================================================
 
+
 }
 // function() 
 function display(array) {
@@ -365,49 +366,6 @@ alert('Are you sure to exit?')
 window.close()
 }
 
-
-
-
-
-
-
-
-
-
-
-// show the total of the score
-var corrects=''
-var incorrects=''
-function showtotal(){
-    document.querySelector('.global-container').style.display = 'none';
-    document.querySelector('.container4').style.display = 'none';
-    document.querySelector('.Total-score').style.display='block'
-    
-    let correct = document.querySelector('.correct')
-    let incorrect= document.querySelector('.incorrect')
-    for ( var value1 of correctanswer){
-        var store1 = document.createElement('div')
-        store1.className='correct_answer'
-        store1.textContent=value1
-        correct.appendChild(store1)
-    } 
-    
-    for ( var value2 of incorrectanswer){
-        var store2 = document.createElement('div')
-        store2.className='incorrect_answers'
-        store2.textContent=value2
-        incorrect.appendChild(store2)
-    }
-   
-    console.log( 'answercorrect',correct);
-    console.log('answerincorrect',incorrect);
-}
-
-function closepageQuiz() {
-    window.close();
-}
-let buttonExit = document.querySelector('.exit')
-buttonExit.addEventListener('click',closepageQuiz)
 
 
 
