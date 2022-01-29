@@ -244,11 +244,12 @@ body {
 .inputAnswer,
 .title {
     background: #0e748b;
-    border-radius: 7px;
+    border-radius: 15px;
     color: #fff;
     margin: auto;
     width: 50%;
-    border-left: 10px solid orange;
+    border-left: 9px solid orange;
+    border-right: 9px solid orange;
     padding: 10px;
 }
 
@@ -256,7 +257,8 @@ body {
     margin: auto;
     margin-top: 2%;
     width: 50%;
-    border-left: 10px solid orange;
+    border-left: 9px solid orange;
+    border-right: 9px solid orange;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -297,6 +299,8 @@ input[type='radio'] {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 15.5px;
+    height: 15.5px;
 }
 
 .inputAnswer,
@@ -375,7 +379,7 @@ input[type='text'] {
 }
 
 input[name='title'] {
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 
 .titleQuiz {
@@ -393,18 +397,19 @@ input[name='title'] {
 /* btn add */
 
 #add {
+    width: 10%;
     background: orange;
     color: #fff;
     font-size: 1.2rem;
+    font-weight: bold;
     border: none;
     border-radius: 7px;
-    text-align: center;
     margin: auto;
     margin-top: 10px;
     display: flex;
     justify-content: center;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
 }
 
 
@@ -454,11 +459,12 @@ input[name='title'] {
 
 .container4 .boxAnswer {
     background: #0e748b;
-    border-radius: 7px;
+    border-radius: 15px;
     color: #fff;
     margin: auto;
     width: 70%;
     border-left: 10px solid orange;
+    border-right: 10px solid orange;
     padding: 10px;
 }
 
@@ -475,7 +481,6 @@ input[name='title'] {
     width: 10%;
     border: none;
     height: 2rem;
-    /* margin-left: 76.3%; */
     margin-top: 1rem;
     border-radius: 7px;
     font-size: 1.2rem;
@@ -516,8 +521,10 @@ input[name='title'] {
     border-radius: 7px;
     font-size: 1.2rem;
     font-weight: bold;
-    margin: auto;
-    margin-top: 3%;
+    /* margin: auto; */
+    margin-top: 2%;
+    margin-left: 24%;
+    margin-bottom: 2%;
     display: flex;
     justify-content: center;
 }
@@ -547,18 +554,13 @@ input[name='title'] {
 }
 
 .container6 .boxAnswer {
-    /* background:#0a2b32a2 ;
-    color: white;
-    width: 80%;
-    margin: 4rem auto;
-    padding: 2rem;
-    border-left: 8px solid orange; */
     background: #0e748b;
-    border-radius: 7px;
+    border-radius: 15px;
     color: #fff;
     margin: auto;
     width: 70%;
     border-left: 10px solid orange;
+    border-right: 10px solid orange;
     padding: 10px;
 }
 

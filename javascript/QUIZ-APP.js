@@ -229,7 +229,7 @@ function addQuestion(event) {
 function radioValidation() {
     let radio = false
     if (document.getElementById('1').checked == true || document.getElementById('2').checked == true || document.getElementById('3').checked == true || document.getElementById('4').checked == true) {
-        window.alert('Your answer is selected')
+
         radio = true;
     } else {
         window.alert('Please choose your answer!')
@@ -347,48 +347,86 @@ function showTotal() {
 }
 
 function closePageQuiz() {
-    // window.close();
     alert('Are you sure to exit?')
     window.close()
 }
 // -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 // user can play quiz-------------
 
-
-var totalScores = 0;
+var totalScores1 = 0;
 var pages = 1;
 var conToAlerts = false;
-let indexOfNewTask = 0;
+var indexOfNewTask = 0;
+var correctanswer1 = []
+var incorrectanswer1 = []
+    // ===============.>>>>>>>>> Add new here tooo=================
+
 var theAnswer = document.getElementsByName("answer");
 let pages1 = document.querySelector('.page1')
 let score1 = document.querySelector('.score1')
 var theAnswers = document.getElementsByName("answers");
+let total_scores = document.querySelector('.total')
 
 function displayTheNewQuestions() {
+    var correct1 = []
+    var incorrect1 = []
     for (var items of theAnswers) {
         if (items.checked) {
             items.checked = false;
             if (items.value == tasks[indexOfNewTask].correct_Answer) {
-                totalScores += 10;
-                score1.textContent = 'Score:' + totalScores
+                totalScores1 += 10;
+                correct1.push(tasks[indexOfNewTask].Question)
+                score1.textContent = 'Score:' + totalScores1
+                correctanswer1.push(correct1)
+            } else {
+                incorrect1.push(tasks[indexOfNewTask].Question)
+                incorrectanswer1.push(incorrect1)
             }
             conToAlerts = true;
             indexOfNewTask += 1
+            console.log(indexOfNewTask);
             pages = indexOfNewTask + 1
-
         }
+    }
 
-    }
+    total_scores.textContent = 'Total Score:' + totalScores1
+    console.log(indexOfNewTask);
     if (indexOfNewTask >= tasks.length) {
-        closePageQuiz();
-    }
-    if (conToAlerts === false) {
+        showTotalofquestion();
+    } else if (conToAlerts === false) {
         alert('Please choose the answer!');
     }
-    console.log(totalScores);
+    // console.log(totalScores);
     console.log("page" + pages);
     pages1.textContent = "Pages:" + pages
     playQuiz()
+}
+// show total of the user create question by themself
+
+var corrects1 = ''
+var incorrects1 = ''
+
+function showTotalofquestion() {
+    document.querySelector('.container6').style.display = 'none';
+    document.querySelector('.global-container').style.display = 'none';
+    document.querySelector('.container4').style.display = 'none';
+    document.querySelector('.Total-score').style.display = 'block'
+
+    let correct1 = document.querySelector('.correct')
+    let incorrect1 = document.querySelector('.incorrect')
+    for (var value2 of correctanswer1) {
+        var store1 = document.createElement('div')
+        store1.className = 'correct_answers'
+        store1.textContent = value2
+        correct1.appendChild(store1)
+    }
+
+    for (var value3 of incorrectanswer1) {
+        var store3 = document.createElement('div')
+        store3.className = 'incorrect_answers1'
+        store3.textContent = value3
+        incorrect1.appendChild(store3)
+    }
 }
 // play quiz
 function playQuiz() {
@@ -396,13 +434,11 @@ function playQuiz() {
     document.querySelector('.container4').style.display = 'none';
     document.querySelector('.container6').style.display = 'block';
     document.querySelector('.Total-score').style.display = 'none';
-
     // startPlayQuiz();
     // display()
     // -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     if (indexOfNewTask < tasks.length) {
         let dates = tasks[indexOfNewTask];
-        console.log(tasks)
         let container6add = document.querySelector(".container6")
             // document.body.appendChild(container4add)
         let theQuestionShow = document.querySelector('.headerQuestions');
@@ -465,28 +501,20 @@ function displayTheNewQuestion() {
         alert('Please choose the answer!');
 
     }
-    // console.log(totalScore);
-    // console.log("page" + page);
-    // console.log("hello");
     pages2.textContent = "Pages:" + page
     startQuiz()
-
 }
 
 function startQuiz() {
     if (number < dataOfQuiz.length) {
         let date = dataOfQuiz[number];
-        console.log(date)
         let container4add = document.querySelector(".container4")
-        console.log(container4add);
-        // document.body.appendChild(container4add)
         let theQuestionShow = document.querySelector('.headerQuestion');
         let first = document.querySelector('#a');
         let second = document.querySelector('#b');
         let third = document.querySelector('#c');
         let fourth = document.querySelector('#d');
         theQuestionShow.textContent = date.question;
-        // text.textContent=dataOfQuiz[i].question;
         first.textContent = date.answer1;
         second.textContent = date.answer2;
         third.textContent = date.answer3;
@@ -494,7 +522,6 @@ function startQuiz() {
         container4add.style.display = "block"
     }
     conToAlet = false;
-
 }
 // -----------------------
 // edit question===========================================
