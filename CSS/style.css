@@ -463,8 +463,8 @@ input[name='title'] {
     color: #fff;
     margin: auto;
     width: 70%;
-    border-left: 10px solid orange;
-    border-right: 10px solid orange;
+    border-left: 9px solid orange;
+    border-right: 9px solid orange;
     padding: 10px;
 }
 

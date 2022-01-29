@@ -184,6 +184,7 @@ var tasks = [];
 
 function addQuestion(event) {
     event.preventDefault();
+
     var task = {};
     var getValueFromTitle = document.getElementById('title');
     task['Title'] = getValueFromTitle.value;
@@ -199,6 +200,7 @@ function addQuestion(event) {
     values4 = getAnswer4.value;
     if (getValueFromTitle.value == '' || getValueQuestion.value == '' || values1 == '' || values2 == '' || values3 == '' || values4 == '') {
         window.alert('You must fill all input')
+
     } else {
         task['answer1'] = values1;
         task['answer2'] = values2;
@@ -214,32 +216,31 @@ function addQuestion(event) {
             tasks.push(task);
             display(tasks)
                 // ===================================== to blank the input =============================================
-            getValueFromTitle.value = ""
-            getValueQuestion.value = ""
-            getAnswer1.value = ""
-            getAnswer2.value = ""
-            getAnswer3.value = ""
-            getAnswer4.value = ""
                 // =======================================================================
         };
+        // getValueFromTitle.value = ""
+        // getValueQuestion.value = ""
+        // getAnswer1.value = ""
+        // getAnswer2.value = ""
+        // getAnswer3.value = ""
+        // getAnswer4.value = ""
+
     }
-}
-// check validation on radio
+    // ==================================================================================
+    getValueFromTitle.value = ""
+    getValueQuestion.value = ""
+    getAnswer1.value = ""
+    getAnswer2.value = ""
+    getAnswer3.value = ""
+    getAnswer4.value = ""
+        // =======================================================================
 
-function radioValidation() {
-    let radio = false
-    if (document.getElementById('1').checked == true || document.getElementById('2').checked == true || document.getElementById('3').checked == true || document.getElementById('4').checked == true) {
 
-        radio = true;
-    } else {
-        window.alert('Please choose your answer!')
-    }
-
-    return radio
 }
 // function() 
 function display(array) {
     // to delete old node 
+
     let containerOld = document.getElementsByClassName("newContainer");
     if (containerOld.length > 0) {
         containerOld[0].remove()
@@ -247,6 +248,8 @@ function display(array) {
     let newContainer = document.createElement('div');
     newContainer.className = 'newContainer';
     document.querySelector(".container5").appendChild(newContainer);
+
+
     for (let i in array) {
 
         let smallCon = document.createElement("div");
@@ -271,7 +274,6 @@ function display(array) {
         ans2.className = 'ans2';
         ans3.className = 'ans3';
         ans4.className = 'ans4';
-
         ans1.textContent = array[i].answer1;
         ans2.textContent = array[i].answer2;
         ans3.textContent = array[i].answer3;
@@ -296,20 +298,32 @@ function display(array) {
         // ====================================================================(add)
         edit.id = i;
         edit.className = "checkTheAnswer";
-        edit.addEventListener('click', editTheQuestion);
+        edit.addEventListener('click', editTheQusetion);
         // ========================================================
         edit.src = 'image/edit.png';
         let remove = document.createElement('img');
         // ================================================
         remove.id = i;
         // ============================
-        remove.addEventListener('click', removeTheQuestion);
+        remove.addEventListener('click', removeTheQusetion);
         remove.src = 'image/bin.png';
         moreButton.appendChild(edit)
         moreButton.appendChild(remove)
         smallCon.appendChild(moreButton)
     }
 
+}
+// check validation on radio
+function radioValidation() {
+    let radio = false
+    if (document.getElementById('1').checked == true || document.getElementById('2').checked == true || document.getElementById('3').checked == true || document.getElementById('4').checked == true) {
+
+        radio = true;
+    } else {
+        window.alert('Please choose your answer!')
+    }
+
+    return radio
 }
 
 function createQuestion() {
@@ -323,8 +337,10 @@ function createQuestion() {
 }
 // show the total of the score
 var corrects = ''
+var incorrects = ''
 
 function showTotal() {
+    document.querySelector('.container6').style.display = 'none';
     document.querySelector('.global-container').style.display = 'none';
     document.querySelector('.container4').style.display = 'none';
     document.querySelector('.Total-score').style.display = 'block'
@@ -344,6 +360,7 @@ function showTotal() {
         store2.textContent = value2
         incorrect.appendChild(store2)
     }
+
 }
 
 function closePageQuiz() {
@@ -354,7 +371,7 @@ function closePageQuiz() {
 // user can play quiz-------------
 
 var totalScores1 = 0;
-var pages = 1;
+var pages7 = 1;
 var conToAlerts = false;
 var indexOfNewTask = 0;
 var correctanswer1 = []
@@ -362,7 +379,7 @@ var incorrectanswer1 = []
     // ===============.>>>>>>>>> Add new here tooo=================
 
 var theAnswer = document.getElementsByName("answer");
-let pages1 = document.querySelector('.page1')
+let pag7 = document.querySelector('.page1')
 let score1 = document.querySelector('.score1')
 var theAnswers = document.getElementsByName("answers");
 let total_scores = document.querySelector('.total')
@@ -384,8 +401,10 @@ function displayTheNewQuestions() {
             }
             conToAlerts = true;
             indexOfNewTask += 1
-            console.log(indexOfNewTask);
-            pages = indexOfNewTask + 1
+
+            pages7 = indexOfNewTask + 1
+            pag7.textContent = "Pages:" + pages7
+            console.log('page of number:' + pages7);
         }
     }
 
@@ -398,9 +417,12 @@ function displayTheNewQuestions() {
     }
     // console.log(totalScores);
     console.log("page" + pages);
-    pages1.textContent = "Pages:" + pages
+
+    console.log('pages of the question : ==' + pages7);
     playQuiz()
 }
+
+
 // show total of the user create question by themself
 
 var corrects1 = ''
@@ -427,18 +449,24 @@ function showTotalofquestion() {
         store3.textContent = value3
         incorrect1.appendChild(store3)
     }
+
 }
+
+
+
 // play quiz
 function playQuiz() {
     document.querySelector('.global-container').style.display = 'none';
     document.querySelector('.container4').style.display = 'none';
     document.querySelector('.container6').style.display = 'block';
     document.querySelector('.Total-score').style.display = 'none';
+
     // startPlayQuiz();
     // display()
     // -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     if (indexOfNewTask < tasks.length) {
         let dates = tasks[indexOfNewTask];
+        console.log(tasks)
         let container6add = document.querySelector(".container6")
             // document.body.appendChild(container4add)
         let theQuestionShow = document.querySelector('.headerQuestions');
@@ -455,8 +483,12 @@ function playQuiz() {
         container6add.style.display = "block"
     }
     conToAlerts = false;
+
 }
+
 // user can play quiz-------------
+
+
 var totalScore = 0;
 var page = 1;
 var conToAlet = false;
@@ -465,10 +497,10 @@ var correctAnswer = []
 var incorrectAnswer = []
 var theAnswer = document.getElementsByName("answer");
 let pages2 = document.querySelector('.page')
-let scores = document.querySelector('.score')
+let scorese = document.querySelector('.score')
 let total_score = document.querySelector('.total')
 var theAnswer = document.getElementsByName("answer");
-// to display the question
+
 function displayTheNewQuestion() {
     document.querySelector('.container4').style.display = 'none';
     var correct = []
@@ -479,11 +511,14 @@ function displayTheNewQuestion() {
             if (item.value == dataOfQuiz[number].correct_answer) {
                 totalScore += 10;
                 correct.push(dataOfQuiz[number].question)
-                scores.textContent = 'Score:' + totalScore
+                scorese.textContent = 'Score:' + totalScore
                 correctAnswer.push(correct)
+
             } else {
                 incorrect.push(dataOfQuiz[number].question)
                 incorrectAnswer.push(incorrect)
+
+
             }
             conToAlet = true;
             number += 1
@@ -501,20 +536,28 @@ function displayTheNewQuestion() {
         alert('Please choose the answer!');
 
     }
+    // console.log(totalScore);
+    // console.log("page" + page);
+    // console.log("hello");
     pages2.textContent = "Pages:" + page
     startQuiz()
+
 }
 
 function startQuiz() {
     if (number < dataOfQuiz.length) {
         let date = dataOfQuiz[number];
+        console.log(date)
         let container4add = document.querySelector(".container4")
+        console.log(container4add);
+        // document.body.appendChild(container4add)
         let theQuestionShow = document.querySelector('.headerQuestion');
         let first = document.querySelector('#a');
         let second = document.querySelector('#b');
         let third = document.querySelector('#c');
         let fourth = document.querySelector('#d');
         theQuestionShow.textContent = date.question;
+        // text.textContent=dataOfQuiz[i].question;
         first.textContent = date.answer1;
         second.textContent = date.answer2;
         third.textContent = date.answer3;
@@ -522,14 +565,15 @@ function startQuiz() {
         container4add.style.display = "block"
     }
     conToAlet = false;
+
 }
 // -----------------------
 // edit question===========================================
-function editTheQuestion(event) {
-    let indexOfElement = event.target;
-    let i = indexOfElement.id;
+function editTheQusetion(event) {
+    let indexOfElemet = event.target;
+    let i = indexOfElemet.id;
     let titleStore = document.getElementById("title");
-    let storeTheQuestion = document.getElementById("inputQuestion");
+    let storeTheQuse = document.getElementById("inputQuestion");
     let storeTheAn1 = document.getElementsByClassName("input1")[0];
     let storeTheAn2 = document.getElementsByClassName("input2")[0];
     let storeTheAn3 = document.getElementsByClassName("input3")[0];
@@ -539,7 +583,7 @@ function editTheQuestion(event) {
     let listOfTheElement = tasks[i];
     // console.log(listOfTheElement);
     titleStore.value = listOfTheElement.Title;
-    storeTheQuestion.value = listOfTheElement.Question;
+    storeTheQuse.value = listOfTheElement.Question;
     storeTheAn1.value = listOfTheElement.answer1;
     storeTheAn2.value = listOfTheElement.answer2;
     storeTheAn3.value = listOfTheElement.answer3;
@@ -557,10 +601,12 @@ function editTheQuestion(event) {
 
 
 }
-// remove question
-function removeTheQuestion(event) {
-    let indexOfElement = event.target;
-    let i = indexOfElement.id;
+// remove qusetion
+function removeTheQusetion(event) {
+    let indexOfElemet = event.target;
+    let i = indexOfElemet.id;
+    console.log(i);
+    console.log("hello my name is assas");
     let con = document.getElementsByClassName("smallCon");
     if (con.length > 0) {
         con[i].remove();
