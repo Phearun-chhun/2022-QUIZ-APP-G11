@@ -193,7 +193,6 @@ body {
 .secondCard button {
     padding: 0.5rem 3rem;
     border: none;
-    font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
     border-radius: 7px;
@@ -427,11 +426,21 @@ input[name='title'] {
 /* when go to test  */
 
 .container4 .logo {
-    margin-top: 0;
-    padding-top: 1rem;
-    padding-left: 1rem;
     color: orange;
     font-weight: bold;
+}
+
+.page,
+.score {
+    margin-top: 2%;
+}
+
+.container4 .btn {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: cen; */
+    width: 70%;
+    margin: auto;
 }
 
 .container4 .headerQuestion {
@@ -460,12 +469,13 @@ input[name='title'] {
     font-size: 1.2rem;
 }
 
-.submit {
+.submit,
+.back {
     background: orange;
     width: 10%;
     border: none;
     height: 2rem;
-    margin-left: 76.3%;
+    /* margin-left: 76.3%; */
     margin-top: 1rem;
     border-radius: 7px;
     font-size: 1.2rem;
@@ -492,6 +502,28 @@ input[name='title'] {
     background: orange;
     margin-top: -1rem;
     margin-left: 2rem;
+}
+
+
+/* container5 */
+
+.container5 .btn-back {
+    background: orange;
+    width: 7%;
+    border: none;
+    color: #fff;
+    height: 2rem;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: auto;
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+.container5 .btn-back span {
+    margin-top: 2.5px;
 }
 
 
@@ -547,4 +579,104 @@ input[name='title'] {
     border-radius: 7px;
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+
+/* mune of playquiz */
+
+.logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 3px;
+}
+
+.play {
+    margin-left: -12rem;
+    font-size: 2rem;
+}
+
+.score,
+.page {
+    color: orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* page for total score and show correct or incorrect question */
+
+.Total-score {
+    text-align: center;
+}
+
+.total {
+    color: orange;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+}
+
+.exit {
+    padding: 12px;
+    width: 10%;
+    border-radius: 7px;
+    cursor: pointer;
+    margin: 2rem;
+    margin-top: 3rem;
+}
+
+.exit:hover {
+    background-color: orange;
+}
+
+.answerfordiplay {
+    display: flex;
+    text-align: center;
+    width: 70%;
+    margin: auto;
+}
+
+.correct {
+    color: rgb(249, 252, 249);
+    width: 45%;
+    height: 50vh;
+    margin: auto;
+    font-size: 1.3rem;
+    border: 2px solid rgb(58, 248, 0);
+    background: rgba(170, 172, 170, 0.356);
+    padding: 10px;
+}
+
+.incorrect {
+    color: rgb(5, 5, 5);
+    width: 45%;
+    height: 50vh;
+    margin: auto;
+    font-size: 1.3rem;
+    border: 2px solid rgb(253, 3, 3);
+    background: rgba(170, 172, 170, 0.356);
+    padding: 10px;
+}
+
+.correct_answer {
+    color: rgb(10, 10, 10);
+}
+
+.incorrect_answers {
+    color: rgb(10, 10, 10);
+}
+
+.cor {
+    color: rgb(5, 107, 5);
+    font-size: 1.4rem;
+}
+
+.incor {
+    color: red;
+    font-size: 1.4rem;
+}
+
+.logo {
+    color: orange;
 }
